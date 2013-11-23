@@ -18,7 +18,6 @@ require.config({
       'handlebars': 'vendor/handlebars/handlebars',
       'backbone': 'vendor/backbone/backbone',
       'bootstrap': 'vendor/bootstrap/js/bootstrap',
-      'searchthedocs': 'searchthedocs/src/searchthedocs'
     },
     shim: {
         'underscore': {
