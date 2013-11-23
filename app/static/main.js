@@ -1,4 +1,4 @@
-// Main Module for Pool Calculator
+// Main Module for searchthedocs demo
 define(function (require) {
   var _ = require('underscore'),
     $ = require('jquery'),
