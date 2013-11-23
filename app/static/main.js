@@ -7,10 +7,11 @@ define(function (require) {
   var searchthedocs_main = function() {
 
     window.searchtd = new SearchTheDocsView({
-      el: '#searchthedocs',
       brand: 'searchthedocs',
       brand_href: '#'
     });
+
+   $('#searchthedocs-container').append(searchtd.render().el);
 
   };
 
