@@ -6,9 +6,40 @@ define(function (require) {
 
   var searchthedocs_main = function() {
 
+    var search_options = {
+      default_endpoint: 'sections',
+      endpoints: {
+        sections: {
+          data_type: 'jsonp',
+          default_params: {format: 'jsonp'},
+          api_url: 'http://readthedocs.org/api/v2/search/section/',
+          record_url:
+            'http://{{domain}}.readthedocs.org/en/'
+            + '{{version}}/{{path}}.html#{{page_id}}',
+          param_map: {
+            search: 'q',
+            domain: 'project'
+          },
+          result_format: {
+            records: 'results.hits.hits',
+            record_format: {
+              // Fields used in sidebar display
+              domain: 'fields.project',
+              title: 'fields.title',
+              // Fields used to build record_url
+              version: 'fields.version',
+              path: 'fields.setup',
+              page_id: 'fields.quick-install'
+            }
+          },
+      }
+    }
+  };
+
     window.searchtd = new SearchTheDocsView({
       brand: 'searchthedocs',
-      brand_href: '#'
+      brand_href: '#',
+      search_options: search_options
     });
 
    $('#searchthedocs-container').append(searchtd.render().el);
