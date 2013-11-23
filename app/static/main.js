@@ -8,6 +8,8 @@ define(function (require) {
 
     window.searchtd = new SearchTheDocsView({
       el: '#searchthedocs',
+      brand: 'searchthedocs',
+      brand_href: '#'
     });
 
   };
