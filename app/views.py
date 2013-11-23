@@ -1,15 +1,11 @@
 from functools import wraps
 import json
 
-from flask import (
-    make_response,
-    request,
-    Response,
-)
+from flask import render_template
 
 from app import app
 
 @app.route('/')
 def index():
-    return 'searchthedocs demo'
+    return render_template('index.html')
 

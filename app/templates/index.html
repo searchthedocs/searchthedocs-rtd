@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>searchthedocs demo</title>
+  <body>
+    <div id="searchthedocs"></div>
+  </body>
+<script src="static/vendor/require/require.js"></script>
+<script type="text/javascript">
+{% include 'require_config.js' %}
+</script>
+<script type="text/javascript">
+require(['main'], function(main) {
+  $(document).ready(function(){
+    main();
+  });
+});
+</script>
+</html>
