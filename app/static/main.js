@@ -10,10 +10,10 @@ define(function (require) {
       default_endpoint: 'sections',
       endpoints: {
         sections: {
-          data_type: 'json',
-          //default_params: {format: 'jsonp'},
-          api_url: 'http://searchtd.dev:8000/api/v2/search/section/',
-          record_url:
+          data_type: 'jsonp',
+          default_params: {format: 'jsonp'},
+          api_url: 'http://readthedocs.org/api/v2/search/section/',
+          content_url_format:
             'http://{{domain}}.readthedocs.org/en/'
             + '{{version}}/{{path}}.html#{{page_id}}',
           param_map: {
