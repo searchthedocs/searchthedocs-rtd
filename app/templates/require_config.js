@@ -18,7 +18,8 @@ require.config({
       'handlebars': 'vendor/handlebars/handlebars',
       'backbone': 'vendor/backbone/backbone',
       'bootstrap': 'vendor/bootstrap/js/bootstrap',
-      'xdomainajax': 'vendor/xdomainajax/jquery.xdomainajax'
+      'xdomainajax': 'vendor/xdomainajax/jquery.xdomainajax',
+      'stfd': 'searchthedocs/src'
     },
     shim: {
         'underscore': {

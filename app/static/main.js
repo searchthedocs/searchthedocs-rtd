@@ -5,7 +5,9 @@ define(function (require) {
     // The xdomainajax plugin is required if we wish to load content
     // from another domain.
     xdomainajax = require('xdomainajax'),
-    SearchTheDocsView = require('searchthedocs/src/searchthedocs');
+    LocalContentView = require('stfd/local_content'),
+    RemoteContentView = require('stfd/remote_content'),
+    SearchTheDocsView = require('stfd/searchthedocs');
 
   var searchthedocs_main = function() {
 
@@ -13,6 +15,7 @@ define(function (require) {
       default_endpoint: 'sections',
       endpoints: {
         sections: {
+          ContentViewClass: LocalContentView,
           data_type: 'jsonp',
           default_params: {format: 'jsonp'},
           api_url: 'http://readthedocs.org/api/v2/search/section/',
@@ -29,6 +32,7 @@ define(function (require) {
               // Fields used in sidebar display
               domain: 'fields.project',
               title: 'fields.title',
+              content: 'fields.content',
               // Fields used to build record_url
               version: 'fields.version',
               path: 'fields.path',
