@@ -9,13 +9,22 @@ define(function (require) {
     RemoteContentView = require('stfd/remote_content'),
     SearchTheDocsView = require('stfd/searchthedocs');
 
+  // Create class map for view class lookup by string name.
+  // Custom classes can be added here, then used in the search_options hash.
+  // This also allows the search_options hash to remain pure data, allowing
+  // dynamic configuration by the server.
+  var class_map = {
+    LocalContentView: LocalContentView,
+    RemoteContentView: RemoteContentView
+  }
+
   var searchthedocs_main = function() {
 
     var search_options = {
       default_endpoint: 'sections',
       endpoints: {
         sections: {
-          ContentViewClass: LocalContentView,
+          content_view_class_string: 'LocalContentView',
           data_type: 'jsonp',
           default_params: {format: 'jsonp'},
           api_url: 'http://readthedocs.org/api/v2/search/section/',
@@ -46,7 +55,8 @@ define(function (require) {
     window.searchtd = new SearchTheDocsView({
       brand: 'searchthedocs',
       brand_href: '#',
-      search_options: search_options
+      search_options: search_options,
+      class_map: class_map
     });
 
    $('#searchthedocs-container').append(searchtd.render().el);
