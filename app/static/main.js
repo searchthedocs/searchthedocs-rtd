@@ -21,15 +21,15 @@ define(function (require) {
             domain: 'project'
           },
           result_format: {
-            records: 'results.hits.hits',
+            records_path: 'results.hits.hits',
             record_format: {
               // Fields used in sidebar display
               domain: 'fields.project',
               title: 'fields.title',
               // Fields used to build record_url
               version: 'fields.version',
-              path: 'fields.setup',
-              page_id: 'fields.quick-install'
+              path: 'fields.path',
+              page_id: 'fields.page_id'
             }
           },
       }
