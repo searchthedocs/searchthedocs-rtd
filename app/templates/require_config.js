@@ -18,6 +18,7 @@ require.config({
       'handlebars': 'vendor/handlebars/handlebars',
       'backbone': 'vendor/backbone/backbone',
       'bootstrap': 'vendor/bootstrap/js/bootstrap',
+      'xdomainajax': 'vendor/xdomainajax/jquery.xdomainajax'
     },
     shim: {
         'underscore': {
@@ -35,6 +36,9 @@ require.config({
             exports: 'Backbone'
         },
         'bootstrap': {
+            deps: ['jquery']
+        },
+        'xdomainajax': {
             deps: ['jquery']
         }
     }

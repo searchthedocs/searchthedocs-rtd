@@ -2,6 +2,9 @@
 define(function (require) {
   var _ = require('underscore'),
     $ = require('jquery'),
+    // The xdomainajax plugin is required if we wish to load content
+    // from another domain.
+    xdomainajax = require('xdomainajax'),
     SearchTheDocsView = require('searchthedocs/src/searchthedocs');
 
   var searchthedocs_main = function() {
