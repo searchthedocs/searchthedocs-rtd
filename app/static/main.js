@@ -7,7 +7,8 @@ define(function (require) {
     xdomainajax = require('xdomainajax'),
     LocalContentView = require('stfd/local_content'),
     RemoteContentView = require('stfd/remote_content'),
-    SearchTheDocsView = require('stfd/searchthedocs');
+    SearchTheDocsView = require('stfd/searchthedocs'),
+    highlight_search_words = require('highlight_search_words');
 
   // Create class map for view class lookup by string name.
   // Custom classes can be added here, then used in the search_options hash.
@@ -62,6 +63,14 @@ define(function (require) {
     });
 
    $('#searchthedocs-container').append(searchtd.render().el);
+
+   // Trigger highlight on content load.
+   searchtd.on('content_loaded', function(doc_obj) {
+     // Add the class to the content pane required for CSS scoping.
+     $('.stfd-content-pane').addClass('rst-content');
+     // Apply highlighig to wherever the search term appears in the content.
+     highlight_search_words(doc_obj.search);
+    });
 
   };
 
