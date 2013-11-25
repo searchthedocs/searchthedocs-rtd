@@ -30,7 +30,7 @@ define(function (require) {
           api_url: 'http://readthedocs.org/api/v2/search/section/',
           content_url_format:
             'http://{{domain}}.readthedocs.org/en/'
-            + '{{version}}/{{path}}.html#{{page_id}}',
+            + '{{version}}/{{path}}.html?highlight={{search}}#{{page_id}}',
           param_map: {
             search: 'q',
             domain: 'project'
@@ -55,6 +55,8 @@ define(function (require) {
     window.searchtd = new SearchTheDocsView({
       brand: 'searchthedocs',
       brand_href: '#',
+      // This is used when linking to the full page of the content.
+      content_link_text: 'See full page in project docs',
       search_options: search_options,
       class_map: class_map
     });
