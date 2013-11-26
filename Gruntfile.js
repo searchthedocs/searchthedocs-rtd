@@ -26,7 +26,9 @@ module.exports = function(grunt) {
               //module names are relative to baseUrl/paths config
               name: 'main'
             }
-          ]
+          ],
+          removeCombined: true,
+          fileExclusionRegExp: /^\./
         }
       }
     },
