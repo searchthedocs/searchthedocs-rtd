@@ -10,7 +10,7 @@
 // Define the paths to modules and shim non-AMD modules.
 /*global require:true */
 require.config({
-    baseUrl: "/static",
+    baseUrl: "/static/src",
     paths: {
       'text': 'vendor/require/text',
       'underscore': 'vendor/underscore/underscore',

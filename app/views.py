@@ -8,7 +8,11 @@ from app import app
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    context = {
+        'JS_VERSION': app.config['JS_VERSION'],
+        'PROD_JS': app.config['PROD_JS'],
+    }
+    return render_template('index.html', **context)
 
 @app.route('/api/v2/search/section/')
 def mock_sections_api():

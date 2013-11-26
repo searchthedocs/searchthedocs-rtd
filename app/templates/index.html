@@ -13,12 +13,20 @@
   </body>
 <script src="static/src/vendor/require/require.js"></script>
 <script type="text/javascript">
-{% include 'require_config.js' %}
+{% if PROD_JS %}
+{% include 'require_config_prod.js' %}
+{% else %}
+{% include 'require_config_dev.js' %}
+{% endif %}
 </script>
 <script type="text/javascript">
-require(['main', 'jquery'], function(main) {
-  $(document).ready(function(){
-    main();
+require(['main'], function(main) {
+  // Loading `main` will also load jquery, but we add this require call to
+  // be explicit about it.
+  require(['jquery'], function($) {
+    $(document).ready(function(){
+      main();
+    });
   });
 });
 </script>

@@ -18,8 +18,8 @@ module.exports = function(grunt) {
       compile: {
         options: {
           baseUrl: "app/static/src",
-          mainConfigFile: "app/templates/require_config.js",
-          dir: "app/static/build" + grunt.file.readJSON(
+          mainConfigFile: "app/templates/require_config_dev.js",
+          dir: "app/static/build/" + grunt.file.readJSON(
             'package.json').version,
           modules: [
             {
