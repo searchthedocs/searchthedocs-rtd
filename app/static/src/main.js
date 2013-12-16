@@ -64,7 +64,7 @@ define(function (require) {
       class_map: class_map
     });
 
-   Backbone.history.start();
+   Backbone.history.start({pushState: true});
 
    // Trigger highlight on content load.
    $(document).on('content_loaded', function(doc_obj) {
