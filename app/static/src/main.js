@@ -1,13 +1,14 @@
 // Main Module for searchthedocs demo
 define(function (require) {
   var _ = require('underscore'),
+    Backbone = require('backbone'),
     $ = require('jquery'),
     // The xdomainajax plugin is required if we wish to load content
     // from another domain.
     xdomainajax = require('xdomainajax'),
     LocalContentView = require('stfd/local_content'),
     RemoteContentView = require('stfd/remote_content'),
-    SearchTheDocsView = require('stfd/searchthedocs'),
+    SearchRouter = require('stfd/router'),
     highlight_search_words = require('highlight_search_words');
 
   // Create class map for view class lookup by string name.
@@ -53,7 +54,8 @@ define(function (require) {
     }
   };
 
-    window.searchtd = new SearchTheDocsView({
+    window.search_router = new SearchRouter({
+      container: '#searchthedocs-container',
       brand: 'searchthedocs',
       brand_href: '#',
       // This is used when linking to the full page of the content.
@@ -62,10 +64,10 @@ define(function (require) {
       class_map: class_map
     });
 
-   $('#searchthedocs-container').append(searchtd.render().el);
+   Backbone.history.start();
 
    // Trigger highlight on content load.
-   searchtd.on('content_loaded', function(doc_obj) {
+   $(document).on('content_loaded', function(doc_obj) {
      // Add the class to the content pane required for CSS scoping.
      $('.stfd-content-pane').addClass('rst-content');
      // Apply highlighig to wherever the search term appears in the content.
