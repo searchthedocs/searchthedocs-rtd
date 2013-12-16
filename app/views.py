@@ -7,6 +7,7 @@ from flask import render_template
 from app import app
 
 @app.route('/')
+@app.route('/section')
 def index():
     context = {
         'JS_VERSION': app.config['JS_VERSION'],
