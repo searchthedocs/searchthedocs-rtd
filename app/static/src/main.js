@@ -30,6 +30,8 @@ define(function (require) {
           data_type: 'jsonp',
           default_params: {format: 'jsonp'},
           api_url: 'http://readthedocs.org/api/v2/search/section/',
+          // API URL which is expected to return a list of all domains.
+          domain_list_url: '/projects/search/autocomplete/',
           content_url_format:
             'http://{{domain}}.readthedocs.org/en/'
             + '{{version}}/{{path}}.html?highlight={{search}}#{{page_id}}',
@@ -67,7 +69,7 @@ define(function (require) {
    Backbone.history.start({pushState: true});
 
    // Trigger highlight on content load.
-   $(document).on('content_loaded', function(doc_obj) {
+   Backbone.on('content_loaded', function(doc_obj) {
      // Add the class to the content pane required for CSS scoping.
      $('.stfd-content-pane').addClass('rst-content');
      // Apply highlighig to wherever the search term appears in the content.
