@@ -17,17 +17,7 @@ def index():
 
 @app.route('/projects/search/autocomplete/')
 def mock_domain_list_api():
-    return json.dumps({
-        'results': ["abalt-django.ajax", "Django Appregister", "Asas Django",
-                    "django-ccfiletypes", "cookiecutter-django-cms",
-                    "djacap - DJango ACcounting APplication", "Django",
-                    "Django-1.4-zh_cn-tkliuxing", "Django Absolute",
-                    "Django-achievements", "django-achtung", "django-activeurl",
-                    "django-activity-stream", "django adaptors",
-                    "django-ad-code", "Django Addendum", "django-admin2",
-                    "django-adminactions", "django-admin-extensions",
-                    "django-admin-honeypot", "datapusher", "disco"]
-    })
+    return open('project_list.json').read()
 
 @app.route('/api/v2/search/section/')
 def mock_sections_api():

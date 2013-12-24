@@ -73,7 +73,9 @@ define(function (require) {
      // Add the class to the content pane required for CSS scoping.
      $('.stfd-content-pane').addClass('rst-content');
      // Apply highlighig to wherever the search term appears in the content.
-     highlight_search_words(doc_obj.search);
+     if (doc_obj.search) {
+        highlight_search_words(doc_obj.search);
+     }
     });
 
   };
