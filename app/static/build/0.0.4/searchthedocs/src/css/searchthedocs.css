@@ -1,0 +1,94 @@
+body {
+  height: 100%;
+}
+#searchthedocs-container {
+  position: relative;
+  height: 100%;
+}
+#stfd {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+#stfd .navbar {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  margin-bottom: 0px;
+}
+#stfd .navbar-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+#stfd .navbar-form {
+  width: 25%;
+}
+#stfd .navbar-form .form-group {
+  width: 100%;
+}
+#search-form-container input {
+  font-size: 120%;
+}
+.stfd-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: #f8f8f8;
+  border-color: #e7e7e7;
+  -webkit-overflow-scrolling: touch;
+  border-right: 1px solid #e7e7e7;
+  font-family: Helvetica Neue, Helvetica, Arial;
+  width: 25%;
+  padding: 60px 15px 0px 15px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.navbar-brand {
+  position: relative;
+}
+.navbar-brand:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -2px;
+  width: 1px;
+  background-color: #e7e7e7;
+}
+.simple-list-item {
+  display: block;
+  color: #444;
+  padding: 5px;
+  font-size: 16px;
+  padding-left: 1.5em;
+  text-indent:-1.5em;
+}
+.simple-list-item .stfd-domain {
+  font-weight: bold;
+}
+.stfd-content-pane{
+  position: relative;
+  height: 100%;
+  font-family: Helvetica Neue, Helvetica, Arial;
+  width: 75%;
+  float: right;
+  padding: 10px 10px 40px 10px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.stfd-content-link {
+  font-style: italic;
+  font-size: 120%;
+  font-weight: bold;
+  text-shadow: 0px 1px 0 rgba(0, 0, 0, 0.1);
+}
+.domain-bubble {
+  position: absolute;
+  padding: 7px 20px 6px 20px;
+}
