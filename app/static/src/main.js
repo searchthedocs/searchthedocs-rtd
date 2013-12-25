@@ -50,7 +50,12 @@ define(function (require) {
               version: 'fields.version',
               path: 'fields.path',
               page_id: 'fields.page_id'
+            },
+            domain_facets_path: 'results.facets.project.terms',
+            domain_facets_format: {
+              domain: 'term',
             }
+
           },
       }
     }
