@@ -1,0 +1,20 @@
+.tooltip {
+  font-size: 16px;
+  z-index: 99999;
+}
+.tooltip.bottom .tooltip-arrow {
+  border-width: 0 5px 6px;
+  border-bottom-color: #8ECC4C;
+}
+.tooltip.right .tooltip-arrow {
+  border-right-color: #8ECC4C;
+}
+.tooltip-inner {
+  max-width: 265px;
+  background-color: #8ECC4C;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+}
+.tooltip-inner.tooltip-inline {
+  margin: 10px;
+}
+
