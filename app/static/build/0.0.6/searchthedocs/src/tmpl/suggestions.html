@@ -1,0 +1,13 @@
+{{#if suggestions}}
+<span class="tt-dropdown-menu" style="position: absolute; z-index: 100; display: block; right: auto;">
+  <div class="tt-dataset-normal" style="display: block;">
+    <span class="tt-suggestions" style="display: block;">
+      {{#each suggestions}}
+      <div class="tt-suggestion" style="white-space: nowrap; cursor: pointer;">
+        <p style="white-space: normal;">{{this}}</p>
+      </div>
+      {{/each}}
+    </span>
+  </div>
+</span>
+{{/if}}
