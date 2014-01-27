@@ -1,15 +1,16 @@
 // Main Module for searchthedocs demo
 define(function (require) {
-  var _ = require('underscore'),
-    Backbone = require('backbone'),
-    $ = require('jquery'),
+  var _ = require('underscore');
+  var Backbone = require('backbone');
+  var $ = require('jquery');
     // The xdomainajax plugin is required if we wish to load content
     // from another domain.
-    xdomainajax = require('xdomainajax'),
-    LocalContentView = require('stfd/local_content'),
-    RemoteContentView = require('stfd/remote_content'),
-    SearchRouter = require('stfd/router'),
-    highlight_search_words = require('highlight_search_words');
+  var xdomainajax = require('xdomainajax');
+  var LocalContentView = require('stfd/local_content');
+  var RemoteContentView = require('stfd/remote_content');
+  var SearchRouter = require('stfd/router');
+  var highlight_search_words = require('highlight_search_words');
+  var display_hints = require('hint_display');
 
   // Create class map for view class lookup by string name.
   // Custom classes can be added here, then used in the search_options hash.
@@ -82,6 +83,14 @@ define(function (require) {
         highlight_search_words(doc_obj.search);
      }
     });
+
+   Backbone.on('view_loaded', function() {
+     display_hints({
+       'tracking_params': {
+         'visit_number': 1,
+       }
+     });
+   });
 
   };
 
