@@ -74,27 +74,82 @@ define(function (require) {
 
    Backbone.history.start({pushState: true});
 
+   window.tracking_params = {};
+
    // Trigger highlight on content load.
    Backbone.on('content_loaded', function(doc_obj) {
+     console.log('content_loaded event');
      // Add the class to the content pane required for CSS scoping.
      $('.stfd-content-pane').addClass('rst-content');
-     // Apply highlighig to wherever the search term appears in the content.
      if (doc_obj.search) {
-        highlight_search_words(doc_obj.search);
+       // Update tracking params
+       tracking_params.searches.push(doc_obj.search);
+       localStorage.setItem(
+         'searches',
+         JSON.stringify(tracking_params.searches)
+       );
+
+       // Check if any hint rules are triggered by search.
+       display_hints({
+         'tracking_params': tracking_params,
+       });
+
+       // Apply highlighig to wherever the search term appears in the content.
+       highlight_search_words(doc_obj.search);
      }
     });
 
+
+
    Backbone.on('view_loaded', function() {
+
+
+     // Increment visit count.
+     visits = +localStorage.getItem('visits');
+     tracking_params.visits = visits + 1 || 1;
+     localStorage.setItem('visits', tracking_params.visits);
+
+     var domain_completions_raw =
+       localStorage.getItem('domain_completions');
+     if (domain_completions_raw) {
+       tracking_params.domain_completions = JSON.parse(domain_completions_raw);
+     } else {
+       tracking_params.domain_completions = [];
+     }
+
+     var searches_raw =
+       localStorage.getItem('searches');
+     if (searches_raw) {
+       tracking_params.searches = JSON.parse(searches_raw);
+     } else {
+       tracking_params.searches = [];
+     }
+
      display_hints({
-       'tracking_params': {
-         'visit_number': 1,
-       }
+       'tracking_params': tracking_params,
      });
    });
+
+   Backbone.on('domain_completion', function(domain_val) {
+     console.log('domain_completion');
+     tracking_params.domain_completions.push(domain_val);
+     localStorage.setItem(
+       'domain_completions',
+       JSON.stringify(tracking_params.domain_completions)
+     );
+    });
+
+   window.clear_tracking = function() {
+     localStorage.removeItem('visits');
+     localStorage.removeItem('searches');
+     localStorage.removeItem('domain_completions');
+   };
+
 
   };
 
   return searchthedocs_main;
+
 
 });
 
