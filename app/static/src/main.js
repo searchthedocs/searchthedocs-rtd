@@ -89,17 +89,17 @@ define(function (require) {
          JSON.stringify(tracking_params.searches)
        );
 
-       // Check if any hint rules are triggered by search.
-       display_hints({
-         'tracking_params': tracking_params,
-       });
-
        // Apply highlighig to wherever the search term appears in the content.
        highlight_search_words(doc_obj.search);
      }
     });
 
-
+   Backbone.on('search_input', function(search_obj) {
+     display_hints({
+       'tracking_params': tracking_params,
+       'search_obj': search_obj,
+     });
+   });
 
    Backbone.on('view_loaded', function() {
 

@@ -11,8 +11,8 @@ define(function() {
     // For example:
     //
     search_hint: function(options) {
-      var visits = options.visits;
-      var searches = options.searches;
+      var visits = options.tracking_params.visits;
+      var searches = options.tracking_params.searches;
       if (
         visits === 1
         && _.isEmpty(searches)
@@ -20,7 +20,7 @@ define(function() {
         return {
           "hint_method": "tooltip",
           "el": ".search-input-container",
-          "remove_event": "content_loaded",
+          "success_event": "content_loaded",
           "hint_options": {
             "title": "Start searching!",
             "placement": "bottom",
@@ -31,18 +31,24 @@ define(function() {
      },
 
     domain_completion_hint: function(options) {
-      var searches = options.searches;
-      var domain_completions = options.domain_completions;
+      var searches = options.tracking_params.searches;
+      var domain_completions = options.tracking_params.domain_completions;
+
       if (
-        !_.isEmpty(searches)
+        // There is a search object, (eg, after keydown)
+        options.search_obj
+        // There are matching domains
+        && options.search_obj.domains_matching_stem.length > 0
+        // There have been no successful completions by the user yet.
         && _.isEmpty(domain_completions)
       ) {
         return {
           "hint_method": "inline",
           "el": "[data-view-name='suggestion-panel-container']",
-          "remove_event": "domain_completion",
+          "hide_event": "search_input",
+          "success_event": "domain_completion",
           "hint_options": {
-            "title": "Hint! You can also tab-complete project filters",
+            "title": "<strong>Hint!</strong> <em>TAB</em> to see matching projects.",
           }
         };
       }
