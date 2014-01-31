@@ -1,0 +1,130 @@
+body {
+  height: 100%;
+}
+#searchthedocs-container {
+  position: relative;
+  height: 100%;
+}
+#stfd {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+#stfd .navbar {
+  position: relative;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  margin-bottom: 0px;
+}
+#stfd .navbar-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+#stfd .navbar-form {
+  width: 25%;
+  padding: 0 10px 0 10px;
+}
+#stfd .navbar-form .form-group {
+  width: 100%;
+}
+#search-form-container input {
+  font-size: 120%;
+}
+.search-input-container {
+  width: 100%;
+}
+.stfd-sidebar {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: #f8f8f8;
+  border-color: #e7e7e7;
+  -webkit-overflow-scrolling: touch;
+  border-right: 1px solid #e7e7e7;
+  font-family: Helvetica Neue, Helvetica, Arial;
+  width: 25%;
+  padding: 60px 0px 0px 0px;
+}
+.navbar-brand {
+  position: relative;
+}
+.navbar-brand:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -2px;
+  width: 1px;
+  background-color: #e7e7e7;
+}
+.simple-list-item {
+  position: relative;
+  left: 10px;
+  display: block;
+  color: #444;
+  padding: 5px 5px 5px 10px;
+  font-size: 16px;
+}
+.simple-list-item.active {
+  z-index: 9998;
+  border-radius: 12px 0 0 12px;
+  border: 1px solid #ddd;
+  border-right: 2px solid #ddd;
+  border-right-color: #edf0f2;
+  background-color: #edf0f2;
+}
+.simple-list-item .stfd-domain {
+  font-weight: bold;
+}
+.stfd-content-pane{
+  position: relative;
+  z-index: 9999;
+  height: 100%;
+  font-family: Helvetica Neue, Helvetica, Arial;
+  width: 75%;
+  float: right;
+  padding: 10px 10px 40px 10px;
+  background-color: #edf0f2;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.stfd-content-link {
+  font-style: italic;
+  font-size: 120%;
+  font-weight: bold;
+  text-shadow: 0px 1px 0 rgba(0, 0, 0, 0.1);
+}
+.domain-bubble {
+  display: table-cell;
+  padding: 7px 20px 7px 20px;
+}
+.domain-suggestions {
+  margin: 0 10px 10px 10px;
+  font-size: 14px;
+  padding: 10px;
+  border-radius: 12px;
+}
+.domain-suggestions .domain-links {
+  word-spacing: 10px;
+}
+.domain-suggestions .search-term {
+  font-weight: bold;
+}
+.domain-suggestions [data-link-type="domain"] {
+  display:inline-block
+}
+.tt-dropdown-menu {
+  width: 23.5%;
+  position: absolute;
+  z-index: 100;
+  display: block;
+  right: auto;
+}
