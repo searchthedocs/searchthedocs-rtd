@@ -47,12 +47,14 @@ define(function(require) {
             $el.tooltip('destroy');
           }));
         } else if (hint_meta.hint_method === 'inline') {
+          var hint_el = '<p class="tooltip-inner tooltip-inline">'
+            + hint_meta.hint_options.title + '</p>';
+          $hint_el = $(hint_el);
           setTimeout(function() {
             hints_shown_this_session.push(hint_name);
-            var hint_el = '<p class="tooltip-inner tooltip-inline">' + hint_meta.hint_options.title + '</p>';
-            $(hint_el)
+            $hint_el
               .hide()
-              .appendTo($el)
+              .insertAfter($el)
               .slideDown('slow');
           }, 100);
 
